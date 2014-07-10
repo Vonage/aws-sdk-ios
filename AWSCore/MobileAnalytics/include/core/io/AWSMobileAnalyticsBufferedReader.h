@@ -13,21 +13,21 @@
  * permissions and limitations under the License.
  */
 
-#import "AZHAL.h"
+#import <Foundation/Foundation.h>
 
-@class BFTask;
-@class AWSHALService;
+FOUNDATION_EXPORT NSString * const AIBufferedReaderErrorDomain;
 
-@interface AWSHALModel : AZHALResource
+typedef NS_ENUM(NSInteger, AIBufferedReaderErrorCodes) {
+    AIBufferedReaderErrorCode_IOStreamClosed = 0
+};
 
-@property (nonatomic, strong, readonly) AWSHALService *HALService;
+@interface AWSMobileAnalyticsBufferedReader : NSObject
 
-- (instancetype)initWithHALResource:(AZHALResource *)HALResource
-                         HALService:(AWSHALService *)HALService;
++(AWSMobileAnalyticsBufferedReader*)readerWithInputStream:(NSInputStream*)stream;
++(AWSMobileAnalyticsBufferedReader*)readerWithInputStream:(NSInputStream*)stream
+                         withBufferLength:(unsigned int)bufferLength;
 
-+ (instancetype)resourceWithHALResource:(AZHALResource *)HALResource
-                             HALService:(AWSHALService *)HALService;
 
-- (BFTask *)oneself;
-
+-(BOOL)readLine:(NSString**)line withError:(NSError**)readError;
+-(void)close;
 @end

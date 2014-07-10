@@ -27,7 +27,7 @@
 #import <Foundation/Foundation.h>
 
 // xml stream writer
-@protocol XMLStreamWriter
+@protocol AWSXMLStreamWriter
 
 - (void) writeStartDocument;
 - (void) writeStartDocumentWithVersion:(NSString*)version;
@@ -62,7 +62,7 @@
 @end
 
 // xml stream writer with namespace support
-@protocol NSXMLStreamWriter <XMLStreamWriter>
+@protocol AWSNSXMLStreamWriter <AWSXMLStreamWriter>
 
 - (void) writeStartElementWithNamespace:(NSString *)namespaceURI localName:(NSString *)localName;
 - (void) writeEndElementWithNamespace:(NSString *)namespaceURI localName:(NSString *)localName;
@@ -85,7 +85,7 @@
 
 @end
 
-@interface XMLWriter : NSObject <NSXMLStreamWriter> {
+@interface AWSXMLWriter : NSObject <AWSNSXMLStreamWriter> {
 		
 	// the current output buffer
 	NSMutableString* writer;

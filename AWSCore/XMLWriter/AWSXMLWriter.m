@@ -26,11 +26,11 @@
 
 // Updated for 64bit architecture - 2014.02.18
 
-#import "XMLWriter.h"
+#import "AWSXMLWriter.h"
 
 #define NSBOOL(_X_) ((_X_) ? (id)kCFBooleanTrue : (id)kCFBooleanFalse)
 
-@interface XMLWriter (UtilityMethods)
+@interface AWSXMLWriter (UtilityMethods)
 // methods for internal use only
 // pop the namespace stack, removing any namespaces which become out-of-scope
 - (void) popNamespaceStack;
@@ -59,11 +59,11 @@ static NSString *const XMLNS_NAMESPACE_URI_PREFIX = @"xmlns";
 static NSString *const XSI_NAMESPACE_URI = @"http://www.w3.org/2001/XMLSchema/";
 static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 
-@implementation XMLWriter
+@implementation AWSXMLWriter
 
 @synthesize automaticEmptyElements, indentation, lineBreak, level;
 
-- (XMLWriter*) init {
+- (AWSXMLWriter*) init {
 	self = [super init];
 	if (self != nil) {
 		// intialize variables
