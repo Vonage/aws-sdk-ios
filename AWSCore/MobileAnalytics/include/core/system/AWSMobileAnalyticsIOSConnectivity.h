@@ -16,13 +16,13 @@
 #import <Foundation/Foundation.h>
 #import "AWSMobileAnalyticsConnectivity.h"
 
-@class AIReachability;
+@class Reachability;
 
 @interface AWSMobileAnalyticsIOSConnectivity : NSObject<AWSMobileAnalyticsConnectivity>
 
--(id) initWithReachability:(AIReachability*) theReachability;
+-(id) initWithReachability:(Reachability*) theReachability;
 
-@property (nonatomic, readonly) AIReachability* reachability;
+@property (nonatomic, readonly) Reachability* reachability;
 
 -(BOOL) isConnected;
 
