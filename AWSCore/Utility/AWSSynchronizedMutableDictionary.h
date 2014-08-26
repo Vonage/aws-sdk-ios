@@ -14,14 +14,15 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "../core/http/AWSMobileAnalyticsRequest.h"
-#import "../core/AWSMobileAnalyticsContext.h"
 
-@interface AWSMobileAnalyticsERSRequestBuilder : NSObject
-+(AWSMobileAnalyticsERSRequestBuilder *)builderWithConfiguration:(id<AWSMobileAnalyticsConfiguring>)configuration
-                                  withHttpClient:(id<AWSMobileAnalyticsHttpClient>)httpClient
-                              withApplicationKey:(NSString*)applicationKey
-                                    withUniqueId:(NSString*)uniqueId;
+@interface AWSSynchronizedMutableDictionary : NSObject
 
--(id<AWSMobileAnalyticsRequest>)buildWithObjects:(NSArray *)theObjects;
+- (id)objectForKey:(id)aKey;
+- (void)removeObjectForKey:(id)aKey;
+- (void)setObject:(id)anObject forKey:(id <NSCopying>)aKey;
+
+- (void)conditionallySetObject:(id)anObject forKey:(id <NSCopying>)aKey;
+
+- (NSArray *)allKeys;
+
 @end

@@ -17,10 +17,17 @@
 
 #import "AWSNetworking.h"
 
-@interface AWSURLRequestRetryHandler : NSObject <AWSURLRequestRetryHandler>
+@interface AWSURLSessionManager : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
 
-@property (nonatomic, assign) uint32_t maxRetryCount;
+@property (nonatomic, strong) AWSNetworkingConfiguration *configuration;
 
-- (instancetype)initWithMaximumRetryCount:(uint32_t)maxRetryCount;
+- (void)dataTaskWithRequest:(AWSNetworkingRequest *)request
+          completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler;
+
+- (void)downloadTaskWithRequest:(AWSNetworkingRequest *)request
+              completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler;
+
+- (void)uploadTaskWithRequest:(AWSNetworkingRequest *)request
+            completionHandler:(AWSNetworkingCompletionHandlerBlock)completionHandler;
 
 @end
