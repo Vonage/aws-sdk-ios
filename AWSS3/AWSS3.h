@@ -14,12 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AWSMobileAnalyticsDefaultInterceptor.h"
-
-@class AWSClientContext;
-
-@interface AWSMobileAnalyticsClientContextInterceptor : AWSMobileAnalyticsDefaultInterceptor
-
-+ (AWSMobileAnalyticsClientContextInterceptor *)contextInterceptorWithClientContext:(AWSClientContext *)clientContext;
-
-@end
+#import <AWSCore/AWSCore.h>
+#import "AWSS3Service.h"
+#import "AWSS3TransferManager.h"
+#import "AWSS3PreSignedURL.h"
