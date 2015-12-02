@@ -8,14 +8,11 @@
  *
  */
 
-#import "AWSBolts.h"
+#import <Foundation/Foundation.h>
 
-NSInteger const kAWSMultipleErrorsError = 80175001;
-
-@implementation AWSBolts
-
-+ (NSString *)version {
-    return AWS_BOLTS_VERSION;
-}
-
-@end
+#if __has_feature(objc_generics) || __has_extension(objc_generics)
+#  define AWS_GENERIC(type) <type>
+#else
+#  define AWS_GENERIC(type)
+#  define AWSGenericType id
+#endif
