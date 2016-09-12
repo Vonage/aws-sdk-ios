@@ -13,10 +13,8 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#import "AWSURLRequestRetryHandler.h"
 
+@interface AWSS3RequestRetryHandler : AWSURLRequestRetryHandler
 
-
-
-#import "AWSCore.h"
-#import "AWSSTSService.h"
+@end

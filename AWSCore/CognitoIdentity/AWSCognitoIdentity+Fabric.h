@@ -13,10 +13,10 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#import "AWSCognitoIdentity.h"
+#import "FABKitProtocol.h"
+#import "Fabric+FABKits.h"
 
+@interface AWSCognitoIdentity (Fabric) <FABKit>
 
-
-
-#import "AWSCore.h"
-#import "AWSSTSService.h"
+@end
