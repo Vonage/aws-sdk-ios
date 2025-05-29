@@ -13,8 +13,10 @@
 // permissions and limitations under the License.
 //
 
-#import <AWSCore/AWSURLRequestRetryHandler.h>
+#import "AWSCognitoIdentity.h"
+#import "FABKitProtocol.h"
+#import "Fabric+FABKits.h"
 
-@interface AWSS3RequestRetryHandler : AWSURLRequestRetryHandler
+@interface AWSCognitoIdentity (Fabric) <FABKit>
 
 @end

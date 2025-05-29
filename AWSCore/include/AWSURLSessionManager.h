@@ -14,21 +14,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
+#import "AWSNetworking.h"
 
-@interface AWSS3RequestSerializer : NSObject <AWSURLRequestSerializer>
+@interface AWSURLSessionManager : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate>
 
-- (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
-                            actionName:(NSString *)actionName;
+@property (nonatomic, strong) AWSNetworkingConfiguration *configuration;
 
-@end
+- (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration;
 
-@interface AWSS3ResponseSerializer : NSObject <AWSHTTPURLResponseSerializer>
-
-@property (nonatomic, assign) Class outputClass;
-
-- (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
-                            actionName:(NSString *)actionName
-                           outputClass:(Class)outputClass;
+- (AWSTask *)dataTaskWithRequest:(AWSNetworkingRequest *)request;
 
 @end

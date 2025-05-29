@@ -14,7 +14,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
+#import "AWSCore.h"
 #import "AWSS3Model.h"
 #import "AWSS3Resources.h"
 
